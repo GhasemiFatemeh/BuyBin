@@ -2,19 +2,26 @@ package ir.iamgeek.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Table
 @Entity
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
     private long empId;
+
+    private String role;
     @Column
     private String name;
     @Column
     private String family;
     @Column
     private long empCode;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn
+    private List<Bin> binList;
     @Version
     private long recordVersion;
 
@@ -60,6 +67,24 @@ public class Employee {
 
     public Employee setEmpCode(long empCode) {
         this.empCode = empCode;
+        return this;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public Employee setRole(String role) {
+        this.role = role;
+        return this;
+    }
+
+    public List<Bin> getBinList() {
+        return binList;
+    }
+
+    public Employee setBinList(List<Bin> binList) {
+        this.binList = binList;
         return this;
     }
 }

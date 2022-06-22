@@ -7,10 +7,7 @@ import jakarta.persistence.*;
 public class Bin {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
     private long binId;
-    @Column
-    private long empId;
     @Column
     private String binName;
     @Column
@@ -65,12 +62,4 @@ public class Bin {
         return this;
     }
 
-    public long getEmpId() {
-        return empId;
-    }
-
-    public Bin setEmpId(long empId) {
-        this.empId = empId;
-        return this;
-    }
 }

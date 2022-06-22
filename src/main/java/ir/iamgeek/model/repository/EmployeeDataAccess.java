@@ -1,6 +1,7 @@
 package ir.iamgeek.model.repository;
 
 import ir.iamgeek.common.JpaProvider;
+import ir.iamgeek.model.entity.Bin;
 import ir.iamgeek.model.entity.Employee;
 
 import javax.persistence.EntityManager;
@@ -45,6 +46,10 @@ public class EmployeeDataAccess implements AutoCloseable {
     public Employee selectById(long id) {
         Query query = entityManager.createQuery("select o from Employee o where empId=" + id);
         return (Employee) query.getResultList();
+    }
+
+    public void insertBinForEmployee(Bin bin){
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package ir.iamgeek.model.service;
 
+import ir.iamgeek.model.entity.Bin;
 import ir.iamgeek.model.entity.Employee;
 import ir.iamgeek.model.repository.EmployeeDataAccess;
 
@@ -9,6 +10,10 @@ public class EmployeeService {
     private static final EmployeeService employeeService = new EmployeeService();
 
     private EmployeeService() {
+    }
+
+    public void addBinForEmployee(Employee employee, Bin bin){
+
     }
 
     public static EmployeeService getInstance() {
